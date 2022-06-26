@@ -9,14 +9,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table
 public class Shoes {
 	
 	@Id
 	@GeneratedValue
 	private int itemid;
 	private String category;
-	private String Description;
+	private String description;
 	private int size;
 	private int cost;
 	//private String image;

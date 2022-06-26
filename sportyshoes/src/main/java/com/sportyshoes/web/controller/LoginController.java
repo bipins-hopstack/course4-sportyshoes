@@ -1,6 +1,7 @@
 package com.sportyshoes.web.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -41,28 +42,29 @@ public class LoginController {
     	log.info("insert method called successfully");
 
     	}
-    		mv.setViewName("/status");
+    		mv.setViewName("/login");
     	return mv;
     }
     
     
     @RequestMapping("/login")
-    public ModelAndView loginUser(HttpServletRequest req,HttpServletResponse res) {
+    public String loginUser(HttpServletRequest req,HttpServletResponse res) {
     	log.info("inside the login  method");
     	String userEmailID;
     	String password;
     	Users user;
-    	ModelAndView mv=new ModelAndView();    	
     	userEmailID=req.getParameter("emailID");
     	password=req.getParameter("password");
     	user=repo.findByEmail(userEmailID);
     	if(user.getPassword().equals(password)) {
-    		
-    		mv.setViewName("getproducts");
+    		log.info("inside the if validation");
+    		return "forward:/welcome";
     	}else {
-    		mv.setViewName("/error");
+    			return "forawrd:/error.jsp";
+				//res.sendRedirect("error.jsp");
+			}
     	}
+		
     		
-    	return mv;
+   
     }
-}

@@ -2,6 +2,7 @@ package com.sportyshoes.web.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,21 +25,29 @@ public class ProductController {
 	
    Logger log=Logger.getAnonymousLogger();
    
-    @RequestMapping("getProducts")
+    @RequestMapping("/welcome")
     public ModelAndView getProducts(HttpServletRequest req,HttpServletResponse res) {
     	log.info("inside the get  method");
-    	Shoes shoes;
+    	List<Shoes> shoes;
     	ModelAndView mv=new ModelAndView();  
-    	 shoerepo.findAllShoes();
-  if(true) {
-    		System.out.println(shoerepo.findAllShoes());
-    		mv.addObject(shoerepo.findAllShoes());
-    		
-    		mv.setViewName("/welcome");
-    	}else {
-    		mv.setViewName("/error");
-    	}
-    		
+    	shoes=shoerepo.findAll();
+    	log.info(shoes.toString());
+    		mv.addObject("shoes",shoes);
+    		mv.setViewName("welcome");
+    	return mv;
+    }
+    
+    @RequestMapping("/buy")
+    public ModelAndView buyProduct(HttpServletRequest req,HttpServletResponse res) {
+    	log.info("inside the Buy  method");
+    	Optional<Shoes> shoes;
+    	ModelAndView mv=new ModelAndView();  
+    	int itemid=Integer.parseInt(req.getParameter("buy"));
+    	log.info("product id :"+itemid);
+    	shoes=shoerepo.findById(itemid);
+    	mv.addObject("shoes",shoes);
+    	log.info("shoe details"+shoes);
+    	mv.setViewName("buysuccess");
     	return mv;
     }
 }
