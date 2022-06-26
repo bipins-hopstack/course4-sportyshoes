@@ -18,35 +18,16 @@
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form action="login">
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-linkedin-in"></i>
-            </button>
-          </div>
-
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0">Or</p>
-          </div>
-
-          <!-- Email input -->
+         <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example3" class="form-control form-control-lg"
+            <input type="email" name="emailID" id="form3Example3" class="form-control form-control-lg"
               placeholder="Enter a valid User Name" />
-            <label class="form-label" for="form3Example3">User Name :</label>
+            <label class="form-label" for="form3Example3">Email Id :</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
+            <input type="password" name="password" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter password" />
             <label class="form-label" for="form3Example4">Password :</label>
           </div>

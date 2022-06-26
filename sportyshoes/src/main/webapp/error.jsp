@@ -4,15 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Status</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Inserted successfully</h1>
-Welcome ${obj.name}
-<form action="getall">
-<input type="submit" value="getallusers">
-
-</form>
+something went wrong
 </body>
 </html>
-

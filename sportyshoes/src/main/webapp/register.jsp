@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="login" method="post">
+<form action="register" method="post">
 Name:<input type="text" name="name"></input>
 Gender<input type="text" name="gender"></input>
 Age:<input type="text" name="age"></input>
