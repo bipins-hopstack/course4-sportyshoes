@@ -10,6 +10,9 @@
 
 <meta charset="ISO-8859-1">
 <title>Welcome to Sporty shoes</title>
+<% String email =(String)session.getAttribute("name");
+   //request.setAttribute("eList", eList);
+%>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,7 +33,7 @@
       </li>
     </ul>
     <span class="navbar-text">
-      Cart \__/
+      Welcome <%=email %>
     </span>
   </div>
 </nav>

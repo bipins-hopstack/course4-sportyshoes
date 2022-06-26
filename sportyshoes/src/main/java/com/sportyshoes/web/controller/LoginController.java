@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sportyshoes.web.Shoes;
 import com.sportyshoes.web.Users;
@@ -58,6 +59,9 @@ public class LoginController {
     	user=repo.findByEmail(userEmailID);
     	if(user.getPassword().equals(password)) {
     		log.info("inside the if validation");
+    		HttpSession sess= req.getSession();
+    		sess.setAttribute("name", user.getName());
+    		sess.setAttribute("userid", user.getId());
     		return "forward:/welcome";
     	}else {
     			return "forawrd:/error.jsp";
