@@ -25,20 +25,14 @@ public class LoginController {
 	UsersRepository repo;
 	Logger log=Logger.getAnonymousLogger();
 
-	//  @RequestMapping("login")
-  //  public String showLoginPage(){
-    //	ModelAndView mv= new ModelAndView();
-    //	System.out.println("--we are in the controller--");
-    //	session.setAttribute("name", mv);
-    //    return "register.jsp";
-   // }
-
     @RequestMapping("/register")
     public ModelAndView insertUser(Users user) {
     	log.info("inside the register method");
     	ModelAndView mv=new ModelAndView();
     	mv.addObject("obj",user);
-    	if(user!= null) {
+    	String email=user.getEmail();
+    	Users userpresent=repo.findByEmail(email);
+    	if(user!= null&&userpresent==null) {
     	repo.save(user);
     	log.info("insert method called successfully");
 
